@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dejá de Comer por Ansiedad - Método CALMA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .video-section {
+            text-align: center;
+            margin: 2rem 0 3rem 0;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .video-section h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        
+        .video-placeholder {
+            background: #e2e8f0;
+            border: 2px dashed #a0aec0;
+            border-radius: 10px;
+            padding: 3rem;
+            margin: 1rem 0;
+            color: #718096;
+            font-style: italic;
+        }
+        
+        .video-cta {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+        
+        .problem-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .problem-section h2 {
+            color: #2d3748;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .error-highlight {
+            background: #fed7d7;
+            border: 2px solid #fc8181;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .error-highlight h3 {
+            color: #c53030;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .solution-intro {
+            background: #e6fffa;
+            border: 2px solid #4fd1c7;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .solution-intro h3 {
+            color: #234e52;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .commitment-filter {
+            background: #fff5f5;
+            border: 3px solid #feb2b2;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .commitment-filter h3 {
+            color: #c53030;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .commitment-filter .warning {
+            background: #fef5e7;
+            border-left: 4px solid #f6ad55;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            text-align: left;
+            border-radius: 5px;
+        }
+        
+        .commitment-filter .warning strong {
+            color: #c05621;
+        }
+        
+        .ready-check {
+            background: #f0fff4;
+            border: 2px solid #68d391;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .ready-check h3 {
+            color: #22543d;
+            margin-bottom: 1rem;
+        }
+        
+        .ready-checklist {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .ready-checklist li {
+            margin: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .ready-checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #38a169;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .options-section {
+            margin: 3rem 0;
+        }
+        
+        .options-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #2d3748;
+            margin-bottom: 2rem;
+        }
+        
+        .options-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .option-card {
+            flex: 1;
+            border: 3px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .course-card {
+            border-color: #4299e1;
+        }
+        
+        .consultation-card {
+            border-color: #9f7aea;
+        }
+        
+        .best-for {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f56500;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        .option-card h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: #2d3748;
+        }
+        
+        .course-card h3 {
+            color: #3182ce;
+        }
+        
+        .consultation-card h3 {
+            color: #805ad5;
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .course-card .price {
+            color: #3182ce;
+        }
+        
+        .consultation-card .price {
+            color: #805ad5;
+        }
+        
+        .features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .features li {
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            text-align: left;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #38a169;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+            width: 100%;
+        }
+        
+        .btn-course {
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+            color: white;
+        }
+        
+        .btn-course:hover {
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+            transform: translateY(-2px);
+        }
+        
+        .btn-consultation {
+            background: linear-gradient(135deg, #9f7aea, #805ad5);
+            color: white;
+        }
+        
+        .btn-consultation:hover {
+            background: linear-gradient(135deg, #805ad5, #6b46c1);
+            transform: translateY(-2px);
+        }
+        
+        .testimonial {
+            background: #f7fafc;
+            border-left: 4px solid #4299e1;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #4299e1;
+            margin-top: 1rem;
+        }
+        
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .decision-helper {
+            background: #fffaf0;
+            border: 2px solid #fbd38d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .decision-helper h3 {
+            color: #c05621;
+            margin-bottom: 1rem;
+        }
+        
+        .reality-check {
+            background: #edf2f7;
+            border: 2px solid #a0aec0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .reality-check h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .options-container {
+                flex-direction: column;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .best-for {
+                position: static;
+                transform: none;
+                display: inline-block;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>¿Comés por Ansiedad?</h1>
+            <p>Descubrí el error que te mantiene atrapada en este ciclo</p>
+        </div>
+        
+        <div class="content">
+            <div class="video-section">
+                <h2>👋 Antes que nada, quiero conocerte</h2>
+                <div class="video-placeholder">
+                    [AQUÍ VA TU VIDEO DE 2-3 MINUTOS]<br>
+                    Hablando sobre quién sos, tu experiencia, y por qué creaste el método CALMA
+                </div>
+                <div class="video-cta">
+                    <strong>En este video te explico mi historia personal con la ansiedad alimentaria y cómo desarrollé el método que cambió mi vida (y la de miles de personas).</strong>
+                </div>
+            </div>
+            
+            <div class="problem-section">
+                <h2>El 90% comete este error</h2>
+                <p>Si llegaste hasta acá desde mi reel, es porque te identificaste con algo que dije...</p>
+            </div>
+            
+            <div class="error-highlight">
+                <h3>🚫 EL ERROR MÁS COMÚN:</h3>
+                <p><strong>Intentás controlar QUÉ comés, pero ignoras CUÁNDO y POR QUÉ comés.</strong></p>
+                <p>El problema no está en el refrigerador... está en tus triggers emocionales sin identificar.</p>
+            </div>
+            
+            <div class="solution-intro">
+                <h3>✨ LA SOLUCIÓN: Método CALMA</h3>
+                <p><strong>5 pasos para identificar y manejar tus triggers emocionales</strong></p>
+                <p>No es magia. Es un sistema probado que trabaja la raíz del problema.</p>
+            </div>
+            
+            <div class="commitment-filter">
+                <h3>⚠️ ESTO NO ES PARA CUALQUIERA</h3>
+                <p><strong>Si estás buscando una "solución mágica" o "pastillas milagrosas", este no es tu lugar.</strong></p>
+                
+                <div class="warning">
+                    <strong>El método CALMA funciona SOLO si estás dispuesta a:</strong>
+                    <ul style="margin-top: 0.5rem;">
+                        <li>Hacer el trabajo interno necesario</li>
+                        <li>Ser honesta con vos misma</li>
+                        <li>Comprometerte con el proceso</li>
+                        <li>Entender que el cambio lleva tiempo</li>
+                    </ul>
+                </div> 
+            
+            <div class="ready-check">
+                <h3>✅ ¿ESTÁS LISTA PARA EL CAMBIO REAL?</h3>
+                <p>Si te reconocés en estos puntos, seguí leyendo:</p>
+                
+                <ul class="ready-checklist">
+                    <li>Ya probaste dietas restrictivas y no funcionaron</li>
+                    <li>Sabés que tu problema va más allá de la comida</li>
+                    <li>Estás cansada de sentir culpa después de comer</li>
+                    <li>Querés entender QUÉ te dispara la ansiedad alimentaria</li>
+                    <li>Estás dispuesta a invertir tiempo en tu sanación</li>
+                    <li>Entendés que el cambio real viene desde adentro</li>
+                </ul>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Durante años pensé que mi problema era la falta de voluntad. [Tu Nombre] me ayudó a entender que era ansiedad sin resolver. Cuando trabajé mis triggers emocionales, todo cambió. No fue fácil, pero valió cada minuto invertido."</p>
+                <div class="testimonial-author">- María, 32 años</div>
+            </div>
+            
+            <div class="reality-check">
+                <h3>🎯 LA REALIDAD</h3>
+                <p><strong>No puedo prometerte resultados porque eso depende de VOS.</strong></p>
+                <p>Lo que sí te puedo prometer es que el método funciona... cuando se aplica con compromiso.</p>
+                <p><em>Miles de personas ya lo comprobaron. Ahora te toca decidir a vos.</em></p>
+            </div>
+            
+            <div class="decision-helper">
+                <h3>🤔 ¿Cómo elegir tu camino?</h3>
+                <p><strong>Curso CALMA:</strong> Si sos disciplinada, te gusta aprender a tu ritmo y tenés constancia para seguir un programa estructurado.</p>
+                <p><strong>Consulta Personal:</strong> Si necesitás que alguien analice tu caso específico, te guíe paso a paso y te haga el seguimiento personalizado.</p>
+                <p><em>Ambos funcionan. La diferencia está en tu estilo de aprendizaje.</em></p>
+            </div>
+            
+            <div class="options-section">
+                <h2 class="options-title">Elegí tu camino hacia la libertad alimentaria:</h2>
+                
+                <div class="options-container">
+                    <div class="option-card course-card">
+                        <div class="best-for">PARA AUTODIDACTAS</div>
+                        <h3>📚 Curso CALMA</h3>
+                        <div class="price">$37</div>
+                        <p><strong>Programa completo autoadministrado</strong></p>
+                        
+                        <ul class="features">
+                            <li>5 módulos del Método CALMA explicados paso a paso</li>
+                            <li>Videos con casos reales y ejercicios prácticos</li>
+                            <li>Workbook descargable para hacer tu proceso</li>
+                            <li>Acceso de por vida a todo el material</li>
+                            <li>Actualizaciones gratuitas del contenido</li>
+                        </ul>
+                        
+                        <a href="https://pay.hotmart.com/N99768637H" class="btn btn-course">EMPEZAR AHORA</a>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Acceso inmediato después del pago</p>
+                    </div>
+                    
+                    <div class="option-card consultation-card">
+                        <div class="best-for">PARA CASOS ESPECÍFICOS</div>
+                        <h3>👩‍⚕️ Consulta Personal</h3>
+                        <div class="price">$30.000</div>
+                        <p><strong>Sesión personalizada online de 60 min</strong></p>
+                        
+                        <ul class="features">
+                            <li>Análisis profundo de tu caso particular</li>
+                            <li>Identificación de TUS triggers específicos</li>
+                            <li>Plan personalizado según tu situación</li>
+                            <li>Sesión completa de 60 minutos conmigo</li>
+                            <li>Material de seguimiento personalizado</li>
+                            <li>Una semana de seguimiento vía WhatsApp</li>
+                        </ul>
+                        
+                        <a href="https://calendly.com/mayrabardella/30min" class="btn btn-consultation">AGENDAR CONSULTA</a>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Turnos disponibles esta semana</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Empecé con el curso porque no estaba segura si necesitaba ayuda profesional. Al terminar los 5 módulos, ya tenía clarísimo cuáles eran mis patrones. El cambio fue gradual pero sólido. Ahora como sin culpa por primera vez en años."</p>
+                <div class="testimonial-author">- Ana, 28 años</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Lic. [Lic. Mayra Bardella]</strong> - Nutricionista experta en Ansiedad Alimentaria</p>
+            <p>MP: [6834] | Consultas Online en toda Argentina e Internacionales </p>
+            <p style="margin-top: 1rem; opacity: 0.8;">¿Tenés dudas? Escribime por Instagram: @[lic.mayrabardella]</p>
+        </div>
+    </div>
+</body>
+</html>
